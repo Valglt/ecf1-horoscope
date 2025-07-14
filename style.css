@@ -1,0 +1,214 @@
+/* === Global === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Segoe UI', sans-serif;
+  /* background: radial-gradient(circle at center, #1f1f3c, #0a0a2a); */
+  color: white;
+height: 100%;
+width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+}
+
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* === Section Intro === */
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 45%;
+}
+.intro h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: popIn 1s ease-in-out;
+}
+
+button#tirer {
+  padding: 1rem 2.5rem;
+  font-size: 1.3rem;
+  background: linear-gradient(145deg, #ff6b81, #f06595);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  width: 70%;
+}
+
+button#tirer:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px #ff6b81;
+}
+
+#loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid #ff6b81;
+  margin-top: 30%;
+  animation:
+    l20-1 0.8s infinite linear alternate,
+    l20-2 1.6s infinite linear;
+}
+@keyframes l20-1{
+   0%    {clip-path: polygon(50% 50%,0       0,  50%   0%,  50%    0%, 50%    0%, 50%    0%, 50%    0% )}
+   12.5% {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100%   0%, 100%   0%, 100%   0% )}
+   25%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 100% 100%, 100% 100% )}
+   50%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
+   62.5% {clip-path: polygon(50% 50%,100%    0, 100%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
+   75%   {clip-path: polygon(50% 50%,100% 100%, 100% 100%,  100% 100%, 100% 100%, 50%  100%, 0%   100% )}
+   100%  {clip-path: polygon(50% 50%,50%  100%,  50% 100%,   50% 100%,  50% 100%, 50%  100%, 0%   100% )}
+}
+@keyframes l20-2{ 
+  0%    {transform:scaleY(1)  rotate(0deg)}
+  49.99%{transform:scaleY(1)  rotate(135deg)}
+  50%   {transform:scaleY(-1) rotate(0deg)}
+  100%  {transform:scaleY(-1) rotate(-135deg)}
+}
+.hidden {
+  display: none !important;
+}
+
+#erreur {
+  color: #ff6b81;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+/* === Cartes Horoscope === */
+.cartes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1300px;
+}
+
+.carte {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.8rem;
+  border-radius: 15px;
+  transition: transform 0.4s ease, background 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  animation: appear 0.5s ease both;
+}
+
+.carte:hover {
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(255, 255, 255, 0.1);
+  cursor: default;
+}
+
+#filtreSigne {
+  margin-top: 10px;
+  width: 30%;
+  text-align: center;
+  padding: 5px;
+  background: none;
+  border: 1px solid #ff6b81;
+  border-radius: 30px;
+  color: #ff6b81;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+
+}
+
+#filtreSigne:hover {
+  box-shadow: 0 0 20px #ff6b81;
+
+}
+
+option {
+  background: #1f1f3c;
+}
+
+
+.carte h3 {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  color: #ffd166;
+  text-align: center;
+  text-shadow: 0 0 5px rgba(255, 209, 102, 0.5);
+}
+
+.carte p {
+  font-size: 1.05rem;
+  text-align: justify;
+  line-height: 1.5;
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+  .intro h1 {
+    font-size: 2rem;
+  }
+  button#tirer {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+/* === Animations === */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+canvas {
+  z-index: -1;
+    position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  display: block;
+}

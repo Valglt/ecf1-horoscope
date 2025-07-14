@@ -1,0 +1,28 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.intro h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: popIn 1s ease-in-out;
+}
+
+button#tirer {
+  padding: 1rem 2.5rem;
+  font-size: 1.3rem;
+  background: linear-gradient(145deg, #ff6b81, #f06595);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  width: 70%;
+}

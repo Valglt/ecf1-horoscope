@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horoscope Oracle du Jour</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/images/favicon.ico">
+</head>
+<body>
+
+<canvas id="canv"></canvas>
+
+  <main>
+    <section class="intro">
+      <h1>Oracle du Jour</h1>
+        <button id="tirer">Tirer les 12 messages</button>
+        <select id="filtreSigne">
+          <option value="">Tous les signes</option>
+        </select>
+      <div id="loader" class="hidden"></div>
+      <p id="erreur"></p>
+    </section>
+    <section id="cartesContainer" class="cartes-grid"></section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
