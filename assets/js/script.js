@@ -33,7 +33,7 @@ bouton.addEventListener("click", async () => {
   } catch (err) {
     setTimeout(() => {
       loader.classList.add("hidden");
-      erreur.textContent = "🔴 Erreur : " + err.message;
+      erreur.textContent = "🔴 Erreur : Impossible de recevoir les données astrales. ";
     }, 1000);
   }
 });
