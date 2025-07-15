@@ -21,6 +21,7 @@ main {
   align-items: center;
   gap: 2rem;
   animation: fadeIn 1s ease-in-out;
+  padding: 0 10px;
 }
 
 
@@ -90,7 +91,7 @@ button#tirer:hover {
 }
 
 #erreur {
-  color: #ff6b81;
+  color: #9f9aff;
   font-weight: bold;
   text-align: center;
   margin-top: 1rem;
