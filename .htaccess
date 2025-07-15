@@ -1,17 +1,29 @@
-DirectoryIndex /index.html
+# ➤ Page d’accueil par défaut
+DirectoryIndex index.html
 
+# ➤ Désactiver l’indexation des dossiers
 Options -Indexes
 
+# ➤ Page d’erreur 404 (redirige vers index.html)
 ErrorDocument 404 /index.html
 
+# ➤ Encodage par défaut UTF-8
 AddDefaultCharset UTF-8
 
+# ➤ Forcer le chargement de index.html à la racine
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_URI} ^/$
+  RewriteRule ^$ index.html [L]
+</IfModule>
+
+# ➤ Optimisation du cache navigateur
 <IfModule mod_expires.c>
-    ExpiresActive On
-    ExpiresByType text/html "access plus 1 day"
-    ExpiresByType text/css "access plus 1 day"
-    ExpiresByType application/javascript "access plus 1 week"
-    ExpiresByType image/jpeg "access plus 1 week"
-    ExpiresByType image/png "access plus 1 week"
-    ExpiresByType image/svg+xml "access plus 1 week"
+  ExpiresActive On
+  ExpiresByType text/html "access plus 1 day"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
 </IfModule>
