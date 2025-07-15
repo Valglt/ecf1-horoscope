@@ -175,8 +175,12 @@ function stars() {
 		this.x = (this.s.rnd ? w*Math.random() : this.s.dx);
 		this.y = (this.s.rnd ? h*Math.random() : this.s.dy);
 		this.r = ((this.s.rmax-1)*Math.random()) + .5;
-		this.dx = (Math.random()*this.s.maxx) * (Math.random() < .5 ? -1 : 1);
-		this.dy = (Math.random()*this.s.maxy) * (Math.random() < .5 ? -1 : 1);
+		const VITESSE_GLOBALE = Math.max(0.2, Math.min(0.5, window.innerWidth / 4000));  // vitesse responsive des étoiles
+
+
+this.dx = (Math.random() * this.s.maxx * VITESSE_GLOBALE) * (Math.random() < .5 ? -1 : 1);
+this.dy = (Math.random() * this.s.maxy * VITESSE_GLOBALE) * (Math.random() < .5 ? -1 : 1);
+
 		this.tw = (this.s.tlap/rint)*(this.r/this.s.rmax);
 		this.rt = Math.random()*this.tw;
 		this.s.rt = Math.random()+1;
@@ -210,31 +214,62 @@ function stars() {
 		if(this.y > h || this.y < 0) this.dy *= -1;
 	}
 }
-var set = function() {
-  var radi = Math.PI * 2.0 / num;
-  for (i = 0; i < num; i++) {
+
+function calculerNombreEtoiles() {
+  const surface = window.innerWidth * window.innerHeight;
+  // 1 étoile pour ~x000 pixels², limité entre 50 et 250
+  return Math.min(250, Math.max(50, Math.floor(surface / 10000)));
+}
+
+var set = function () {
+  num = calculerNombreEtoiles(); 
+  midX = new Array(num);
+  midY = new Array(num);
+  rad = new Array(num);
+
+  const radi = Math.PI * 2.0 / num;
+  for (let i = 0; i < num; i++) {
     midX[i] = Math.cos(radi * i);
     midY[i] = Math.sin(radi * i);
     rad[i] = 0.1;
   }
-  draw();
+
+  arr = [];
+  for (let j = 0; j < num; j++) {
+    arr[j] = new stars();
+    arr[j].reset();
+  }
+
+  draw(); // lancé une seule fois
 }
-// window.addEventListener('mousemove', function(e) {
-//   msX = (e.clientX - _x) / sc;
-//   msY = (e.clientY - _y) / sc;
-// }, false);
 
-// window.addEventListener('touchmove', function(e) {
-//   e.preventDefault();
-//   msX = (e.touches[0].clientX - _x) / sc;
-//   msY = (e.touches[0].clientY - _y) / sc;
-// }, false);
 
-window.addEventListener('resize', function() {
+
+window.addEventListener('resize', function () {
   c.width = w = window.innerWidth;
   c.height = h = window.innerHeight;
-  draw();
+  _x = w / 2;
+  _y = h / 2;
+
+  num = calculerNombreEtoiles(); // recalcule adapté à la nouvelle taille
+  midX = new Array(num);
+  midY = new Array(num);
+  rad = new Array(num);
+
+  const radi = Math.PI * 2.0 / num;
+  for (let i = 0; i < num; i++) {
+    midX[i] = Math.cos(radi * i);
+    midY[i] = Math.sin(radi * i);
+    rad[i] = 0.1;
+  }
+
+  arr = [];
+  for (let j = 0; j < num; j++) {
+    arr[j] = new stars();
+    arr[j].reset();
+  }
 }, true);
+
 
 
 

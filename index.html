@@ -1,26 +1,48 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" itemscope itemtype="https://schema.org/WebPage">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Horoscope Oracle du Jour</title>
+
+  <title>Horoscope Oracle du Jour | Messages Spirituels Personnalisés</title>
+
+  <meta name="description" content="Tirez vos 12 messages spirituels du jour ! Horoscope dynamique, responsive et mystique, basé sur l'API officielle de l'oracle.">
+  <meta name="keywords" content="horoscope, oracle, zodiaque, messages spirituels, astrologie, signe astrologique, divination, carte oracle">
+  <meta name="author" content="Valentin Guerault">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://valentinguerault.fr/horoscope-oracle-du-jour/">
+
+  <meta property="og:title" content="Horoscope Oracle du Jour | Messages Astrales Personnalisés">
+  <meta property="og:description" content="Découvrez 12 messages mystiques issus d'une API magique, un tirage d’oracle responsive et animé.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://valentinguerault.fr/horoscope-oracle-du-jour/">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Horoscope Oracle du Jour">
+  <meta name="twitter:description" content="Tirez les 12 messages spirituels qui vous sont destinés. Une expérience fluide, moderne et magique.">
+
+
+
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" href="assets/images/favicon-16x16.png">
+  <link rel="icon" href="assets/images/favicon-16x16.png" type="image/png">
 </head>
 <body>
 
-<canvas id="canv"></canvas>
+<canvas id="canv" role="presentation"></canvas>
 
-  <main>
-<section class="intro">
-  <h1>Oracle du Jour</h1>
-  <button id="tirer">Tirer les 12 messages</button>
-  <div id="loader" class="hidden"></div>
-  <p id="erreur"></p>
-</section>
+<main itemprop="mainContentOfPage">
+  <section class="intro" itemscope itemtype="https://schema.org/CreativeWork">
+    <h1 itemprop="headline">Oracle du Jour</h1>
+    <button id="tirer" itemprop="potentialAction" aria-label="Tirer les 12 messages">Tirer les 12 messages</button>
+    <div id="loader" class="hidden" aria-hidden="true"></div>
+    <p id="erreur" role="alert" itemprop="text"></p>
+  </section>
 
-    <section id="cartesContainer" class="cartes-grid"></section>
-  </main>
-  <script src="assets/js/script.js"></script>
+  <section id="cartesContainer" class="cartes-grid" aria-live="polite"></section>
+</main>
+
+<script src="assets/js/script.js" defer></script>
+
 </body>
 </html>
