@@ -33,7 +33,7 @@ Il s’agit d’une application web responsive permettant d’afficher 12 messag
 ## 🔗 Liens importants
 
 - 🌍 **Site en ligne** : [https://valentinguerault.fr/horoscope-oracle-du-jour](https://valentinguerault.fr/horoscope-oracle-du-jour)  
-- 💻 **Dépôt GitHub** : [https://github.com/ValentinGuerault/horoscope-oracle](https://github.com/ValentinGuerault/horoscope-oracle)
+- 💻 **Dépôt GitHub** : https://github.com/Valglt/ecf1-horoscope
 
 ---
 
@@ -59,7 +59,7 @@ Il s’agit d’une application web responsive permettant d’afficher 12 messag
 1. Ouvre un terminal et clone le dépôt :
 
    ```bash
-   git clone https://github.com/ValentinGuerault/horoscope-oracle.git
+   git clone https://github.com/Valglt/ecf1-horoscope
 
 2. Accède au dossier :
 
