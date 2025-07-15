@@ -1,4 +1,3 @@
-/* === Global === */
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +6,6 @@
 
 html, body {
   font-family: 'Segoe UI', sans-serif;
-  /* background: radial-gradient(circle at center, #1f1f3c, #0a0a2a); */
   color: white;
 height: 100%;
 width: 100%;
@@ -25,7 +23,6 @@ main {
   animation: fadeIn 1s ease-in-out;
 }
 
-/* === Section Intro === */
 
 .intro {
   display: flex;
@@ -38,7 +35,7 @@ main {
   font-size: 3rem;
   text-align: center;
   margin-bottom: 1rem;
-  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  background: linear-gradient(to bottom, #9f9aff, #c4d4fa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: popIn 1s ease-in-out;
@@ -47,7 +44,7 @@ main {
 button#tirer {
   padding: 1rem 2.5rem;
   font-size: 1.3rem;
-  background: linear-gradient(145deg, #ff6b81, #f06595);
+  background: linear-gradient(170deg, #9f9aff, #c4d4fa);
   border: none;
   border-radius: 30px;
   cursor: pointer;
@@ -59,14 +56,15 @@ button#tirer {
 
 button#tirer:hover {
   transform: scale(1.08);
-  box-shadow: 0 0 20px #ff6b81;
+  box-shadow: 0 0 20px #9f9aff;
 }
 
 #loader {
   width: 50px;
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 8px solid #ff6b81;
+  border: 8px solid #9f9aff;
+  
   margin-top: 30%;
   animation:
     l20-1 0.8s infinite linear alternate,
@@ -99,7 +97,6 @@ button#tirer:hover {
   font-size: 1.1rem;
 }
 
-/* === Cartes Horoscope === */
 .cartes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -125,28 +122,6 @@ button#tirer:hover {
   cursor: default;
 }
 
-#filtreSigne {
-  margin-top: 10px;
-  width: 30%;
-  text-align: center;
-  padding: 5px;
-  background: none;
-  border: 1px solid #ff6b81;
-  border-radius: 30px;
-  color: #ff6b81;
-  transition: box-shadow 0.3s ease;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-
-}
-
-#filtreSigne:hover {
-  box-shadow: 0 0 20px #ff6b81;
-
-}
-
-option {
-  background: #1f1f3c;
-}
 
 
 .carte h3 {
@@ -163,7 +138,6 @@ option {
   line-height: 1.5;
 }
 
-/* === Responsive === */
 @media (max-width: 600px) {
   .intro h1 {
     font-size: 2rem;
@@ -174,7 +148,6 @@ option {
   }
 }
 
-/* === Animations === */
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }

@@ -2,7 +2,6 @@ const bouton = document.getElementById("tirer");
 const loader = document.getElementById("loader");
 const erreur = document.getElementById("erreur");
 const container = document.getElementById("cartesContainer");
-const select = document.getElementById("filtreSigne");
 
 const API_URL = "https://oracles-api.sidathsoeun.fr/oracle_api.php";
 const API_KEY = "SI_DART_Sun_api_keys_!598254741369!excalibure!paramKeysOracle!887782secretNum&5882!";
@@ -12,7 +11,6 @@ let horoscopeGlobal = {};
 bouton.addEventListener("click", async () => {
   erreur.textContent = "";
   container.innerHTML = "";
-  select.innerHTML = '<option value="">Tous les signes</option>';
   loader.classList.remove("hidden");
 
   try {
@@ -26,7 +24,6 @@ bouton.addEventListener("click", async () => {
 
     const data = await response.json();
     horoscopeGlobal = data.horoscope;
-    remplirSelect(horoscopeGlobal);
 
     setTimeout(() => {
       afficherHoroscopes(horoscopeGlobal);
@@ -41,22 +38,10 @@ bouton.addEventListener("click", async () => {
   }
 });
 
-function remplirSelect(horoscope) {
-  for (const signe in horoscope) {
-    const option = document.createElement("option");
-    option.value = signe;
-    option.textContent = signe;
-    select.appendChild(option);
-  }
-}
-
 function afficherHoroscopes(data) {
   container.innerHTML = "";
-  const filtre = select.value;
   let delay = 0;
   for (const signe in data) {
-    if (filtre && signe !== filtre) continue;
-
     const carte = document.createElement("div");
     carte.classList.add("carte");
     carte.style.animationDelay = `${delay}s`;
@@ -74,10 +59,6 @@ function afficherHoroscopes(data) {
     delay += 0.1;
   }
 }
-
-select.addEventListener("change", () => {
-  afficherHoroscopes(horoscopeGlobal);
-});
 
 
 
