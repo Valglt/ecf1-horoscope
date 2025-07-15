@@ -32,7 +32,7 @@ Il s’agit d’une application web responsive permettant d’afficher 12 messag
 
 ## 🔗 Liens importants
 
-- 🌍 **Site en ligne** : [https://valentinguerault.fr/horoscope-oracle-du-jour](https://valentinguerault.fr/horoscope-oracle-du-jour)  
+- 🌍 **Site en ligne** : https://ecf1-guerault-valentin.sidathsoeun.fr 
 - 💻 **Dépôt GitHub** : https://github.com/Valglt/ecf1-horoscope
 
 ---
